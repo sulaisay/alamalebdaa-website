@@ -1,6 +1,39 @@
 import Link from "next/link";
 
 export default function Home() {
+  const products = [
+    {
+      name: "فرشات",
+      desc: "صممت لتجعل نومك أكثر راحة",
+      image: "/images/products/mattress.jpg"
+    },
+    {
+      name: "قعدات عربية",
+      desc: "تجمع بين الراحة والأصالة",
+      image: "/images/products/cushions.jpg"
+    },
+    {
+      name: "مخدات",
+      desc: "تمنحك راحة لا مثيل لها",
+      image: "/images/products/pillows.jpg"
+    },
+    {
+      name: "اسفنج ضغط + اسفنج دانلوب",
+      desc: "راحة ما الها مثيل",
+      image: "/images/products/foam-pressure.jpg"
+    },
+    {
+      name: "اسفنج ميموري + اسفنج هايبر",
+      desc: "لأن راحتك تستحق الأفضل",
+      image: "/images/products/foam-memory.jpg"
+    },
+    {
+      name: "اسفنج بوندد + اسفنج دانلوب",
+      desc: "قوة البوندد وراحة دانلوب",
+      image: "/images/products/foam-bonded.jpg"
+    }
+  ];
+
   return (
     <main className="min-h-screen bg-gradient-to-br from-orange-50 to-white">
       {/* Hero Section */}
@@ -13,6 +46,7 @@ export default function Home() {
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
               متخصصون في الإسفنج والجلسات الحصرية الحديثة، تصميم لكل متطلبات الراحة.
+              نقدم منتجات فاخرة تجمع بين الأصالة والجودة العالية.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
@@ -26,34 +60,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Products Preview */}
+      {/* Products Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              منتجاتنا الرئيسية
+              منتجاتنا المميزة
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              نقدم مجموعة واسعة من منتجات الإسفنج عالية الجودة
+              نقدم مجموعة واسعة من منتجات الإسفنج عالية الجودة التي تلبي كافة الاحتياجات
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { name: "فرشات", desc: "صممت لتجعل نومك أكثر راحة" },
-              { name: "قعدات عربية", desc: "تجمع بين الراحة والأصالة" },
-              { name: "مخدات", desc: "تمنحك راحة لا مثيل لها" },
-              { name: "اسفنج ضغط + اسفنج دانلوب", desc: "راحة ما الها مثيل" },
-              { name: "اسفنج ميموري + اسفنج هايبر", desc: "لأن راحتك تستحق الأفضل" },
-              { name: "اسفنج بوندد + اسفنج دانلوب", desc: "قوة البوندد وراحة دانلوب" }
-            ].map((product, index) => (
-              <div key={index} className="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {product.name}
-                </h3>
-                <p className="text-gray-600">
-                  {product.desc}
-                </p>
+            {products.map((product, index) => (
+              <div key={index} className="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                <div className="h-48 bg-gray-200">
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    {product.name}
+                  </h3>
+                  <p className="text-gray-600">
+                    {product.desc}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
